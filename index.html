@@ -29,7 +29,7 @@
           Реалізуйте класи-спадкоємці: квадрат, прямокутник, трикутник. Перевизначте методи виведення та обчислень у класах-спадкоємцях. Створіть масив з різними фігурами та виведіть інформацію про кожну з них, включаючи площу та периметр.
         </p>
         <p>
-          <code>
+          
             // Task 1
             class Shape {
               constructor(name) {
@@ -110,7 +110,7 @@
               console.log(`Area: ${shape.getArea()}`);
               console.log(`Perimeter: ${shape.getPerimeter()}`);
             });
-          </code>
+          
         </p>
       </section>
 
@@ -129,7 +129,7 @@
           Реалізуйте класи-спадкоємці: книга, телефон, холодильник. Перевизначте методи виведення та обчислень у класах-спадкоємцях. Створіть масив з різними товарами та виведіть інформацію про кожен з них.
         </p>
         <p>
-          <code>
+          
             // Task 2
             class Product {
               constructor(name, price, quantity) {
@@ -176,7 +176,7 @@
               }
             }
 
-            // Example usage
+            // Example 
             const products = [
               new Book('JavaScript Basics', 25, 3, 'John Doe'),
               new Phone('iPhone 12', 999, 10, 'Apple'),
@@ -199,7 +199,7 @@
           <li>в інших випадках – повна дата у форматі «день.місяць.рік».</li>
         </ul>
         <p>
-          <code>
+          
             // Task 3
             class News {
               constructor(title, text, tags, publishDate) {
@@ -239,7 +239,7 @@
             ];
 
             newsItems.forEach(news => news.print());
-          </code>
+          
         </p>
       </section>
 
@@ -258,7 +258,7 @@
           <li>метод пошуку новин за тегом (повертає масив новин, в яких вказано переданий тег у метод).</li>
         </ul>
         <p>
-          <code>
+          
             // Task 4
             class NewsFeed {
               constructor() {
@@ -290,7 +290,7 @@
               }
             }
 
-            // Example usage
+            // Example 
             const newsFeed = new NewsFeed();
             newsFeed.addNews(new News('Event', 'An event happened.', ['event'], '2024-08-26'));
             newsFeed.addNews(new News('Update', 'An update was made.', ['update'], '2024-08-22'));
@@ -304,7 +304,7 @@
             console.log('Searching for "event":');
             const eventNews = newsFeed.searchNewsByTag('event');
             eventNews.forEach(news => news.print());
-          </code>
+          
         </p>
       </section>
 
@@ -324,7 +324,7 @@
           Реалізуйте класи-спадкоємці: легковий автомобіль, вантажний автомобіль, автобус. Перевизначте методи виведення та обчислень у класах-спадкоємцях. Створіть масив з різними автомобілями та виведіть інформацію про кожен з них.
         </p>
         <p>
-          <code>
+          
             // Task 5
             class Car {
               constructor(make, model, year, enginePower) {
@@ -369,7 +369,7 @@
               }
             }
 
-            // Example usage
+            // Example 
             const cars = [
               new Sedan('Toyota', 'Camry', 2022, 200),
               new Truck('Ford', 'F-150', 2021, 400),
@@ -377,7 +377,7 @@
             ];
 
             cars.forEach(car => car.printInfo());
-          </code>
+          
         </p>
       </section>
     </div>
