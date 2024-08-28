@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>OОП</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body class="bg-dark">
+    <div class="container py-5 px-3 text-bg-info">
+      <h1 class="h1 text-danger text-center mb-5">ООП</h1>
+
+      <section class="text-bg-secondary p-4 rounded-3 mb-5">
+        <p class="h3"><b>Task 1.</b></p>
+        <p>
+          Реалізуйте клас, що описує геометричну фігуру з властивостями та
+          методами:
+        </p>
+        <ul>
+          <li>get-властивість для отримання назви фігури;</li>
+          <li>метод для обчислення площі фігури;</li>
+          <li>метод для обчислення периметра фігури.</li>
+        </ul>
+        <p>
+          Реалізуйте класи-спадкоємці: квадрат, прямокутник, трикутник.
+          Перевизначте методи виведення та обчислень у класах-спадкоємцях.
+          Створіть масив з різними фігурами та виведіть інформацію про кожну з
+          них, включаючи площу та периметр.
+        </p>
+        <p>
+          // Task 1 class Shape { constructor(name) { this.name = name; }
+          getName() { return this.name; } getArea() { throw new Error('Method
+          not implemented'); } getPerimeter() { throw new Error('Method not
+          implemented'); } } class Square extends Shape {
+          constructor(sideLength) { super('Square'); this.sideLength =
+          sideLength; } getArea() { return this.sideLength ** 2; }
+          getPerimeter() { return this.sideLength * 4; } } class Rectangle
+          extends Shape { constructor(width, height) { super('Rectangle');
+          this.width = width; this.height = height; } getArea() { return
+          this.width * this.height; } getPerimeter() { return 2 * (this.width +
+          this.height); } } class Triangle extends Shape { constructor(a, b, c)
+          { super('Triangle'); this.a = a; this.b = b; this.c = c; } getArea() {
+          const s = (this.a + this.b + this.c) / 2; return Math.sqrt(s * (s -
+          this.a) * (s - this.b) * (s - this.c)); } getPerimeter() { return
+          this.a + this.b + this.c; } } // Example const shapes = [ new
+          Square(5), new Rectangle(4, 7), new Triangle(3, 4, 5) ];
+          shapes.forEach(shape => { console.log(`Name: ${shape.getName()}`);
+          console.log(`Area: ${shape.getArea()}`); console.log(`Perimeter:
+          ${shape.getPerimeter()}`); });
+        </p>
+      </section>
+
+      <section class="text-bg-secondary p-4 rounded-3 mb-5">
+        <p class="h3"><b>Task 2.</b></p>
+        <p>Реалізуйте клас, що описує товар з властивостями та методами:</p>
+        <ul>
+          <li>назва товару;</li>
+          <li>ціна товару;</li>
+          <li>кількість одиниць товару;</li>
+          <li>метод для виведення інформації про товар в console.log().</li>
+        </ul>
+        <p>
+          Реалізуйте класи-спадкоємці: книга, телефон, холодильник. Перевизначте
+          методи виведення та обчислень у класах-спадкоємцях. Створіть масив з
+          різними товарами та виведіть інформацію про кожен з них.
+        </p>
+        <p>
+          // Task 2 class Product { constructor(name, price, quantity) {
+          this.name = name; this.price = price; this.quantity = quantity; }
+          printInfo() { console.log(`Name: ${this.name}, Price: ${this.price},
+          Quantity: ${this.quantity}`); } } class Book extends Product {
+          constructor(name, price, quantity, author) { super(name, price,
+          quantity); this.author = author; } printInfo() { console.log(`Book:
+          ${this.name}, Author: ${this.author}, Price: ${this.price}, Quantity:
+          ${this.quantity}`); } } class Phone extends Product {
+          constructor(name, price, quantity, brand) { super(name, price,
+          quantity); this.brand = brand; } printInfo() { console.log(`Phone:
+          ${this.name}, Brand: ${this.brand}, Price: ${this.price}, Quantity:
+          ${this.quantity}`); } } class Fridge extends Product {
+          constructor(name, price, quantity, capacity) { super(name, price,
+          quantity); this.capacity = capacity; } printInfo() {
+          console.log(`Fridge: ${this.name}, Capacity: ${this.capacity}L, Price:
+          ${this.price}, Quantity: ${this.quantity}`); } } // Example const
+          products = [ new Book('JavaScript Basics', 25, 3, 'John Doe'), new
+          Phone('iPhone 12', 999, 10, 'Apple'), new Fridge('Samsung 300L', 600,
+          5, 300) ]; products.forEach(product => product.printInfo());
+        </p>
+      </section>
+
+      <section class="text-bg-secondary p-4 rounded-3 mb-5">
+        <p class="h3"><b>Task 3.</b></p>
+        <p>
+          Реалізуйте клас, що описує новину (заголовок, текст, масив тегів, дата
+          публікації). У класі необхідно реалізувати один метод print, який
+          виводить всю інформацію в console.log(). Зверніть увагу, як виводиться
+          дата:
+        </p>
+        <ul>
+          <li>
+            якщо з дати публікації пройшло менше дня, то виводиться «сьогодні»;
+          </li>
+          <li>
+            якщо з дати публікації пройшло менше тижня, то виводиться «N днів
+            тому»;
+          </li>
+          <li>в інших випадках – повна дата у форматі «день.місяць.рік».</li>
+        </ul>
+        <p>
+          // Task 3 class News { constructor(title, text, tags, publishDate) {
+          this.title = title; this.text = text; this.tags = tags;
+          this.publishDate = new Date(publishDate); } print() { const now = new
+          Date(); const diffDays = Math.floor((now - this.publishDate) / (1000 *
+          60 * 60 * 24)); let dateStr = ''; if (diffDays < 1) { dateStr =
+          'сьогодні'; } else if (diffDays < 7) { dateStr = `${diffDays} днів
+          тому`; } else { const day =
+          this.publishDate.getDate().toString().padStart(2, '0'); const month =
+          (this.publishDate.getMonth() + 1).toString().padStart(2, '0'); const
+          year = this.publishDate.getFullYear(); dateStr =
+          `${day}.${month}.${year}`; } console.log(`Title: ${this.title}`);
+          console.log(`Date: ${dateStr}`); console.log(`Tags:
+          ${this.tags.join(', ')}`); console.log(`Text: ${this.text}`); } } //
+          Example const newsItems = [ new News('Breaking News', 'Something
+          important happened.', ['breaking', 'important'], '2024-08-27'), new
+          News('Local News', 'Some local news here.', ['local'], '2024-08-20')
+          ]; newsItems.forEach(news => news.print());
+        </p>
+      </section>
+
+      <section class="text-bg-secondary p-4 rounded-3 mb-5">
+        <p class="h3"><b>Task 4.</b></p>
+        <p>Реалізуйте клас, що описує стрічку новин. Клас має містити:</p>
+        <ul>
+          <li>масив новин;</li>
+          <li>get-властивість, яка повертає кількість новин;</li>
+          <li>метод виведення на екран усіх новин;</li>
+          <li>метод додавання новини;</li>
+          <li>метод видалення новини;</li>
+          <li>
+            метод сортування новин за датою (від останніх новин до старих);
+          </li>
+          <li>
+            метод пошуку новин за тегом (повертає масив новин, в яких вказано
+            переданий тег у метод).
+          </li>
+        </ul>
+        <p>
+          // Task 4 class NewsFeed { constructor() { this.newsArray = []; } get
+          count() { return this.newsArray.length; } addNews(news) {
+          this.newsArray.push(news); } removeNews(index) {
+          this.newsArray.splice(index, 1); } displayAllNews() {
+          this.newsArray.forEach(news => news.print()); } sortNewsByDate() {
+          this.newsArray.sort((a, b) => b.publishDate - a.publishDate); }
+          searchNewsByTag(tag) { return this.newsArray.filter(news =>
+          news.tags.includes(tag)); } } // Example const newsFeed = new
+          NewsFeed(); newsFeed.addNews(new News('Event', 'An event happened.',
+          ['event'], '2024-08-26')); newsFeed.addNews(new News('Update', 'An
+          update was made.', ['update'], '2024-08-22')); console.log(`Total news
+          count: ${newsFeed.count}`); newsFeed.displayAllNews();
+          newsFeed.sortNewsByDate(); console.log('After sorting:');
+          newsFeed.displayAllNews(); console.log('Searching for "event":');
+          const eventNews = newsFeed.searchNewsByTag('event');
+          eventNews.forEach(news => news.print());
+        </p>
+      </section>
+
+      <section class="text-bg-secondary p-4 rounded-3 mb-5">
+        <p class="h3"><b>Task 5.</b></p>
+
+        <ul>
+          <li>марка автомобіля;</li>
+          <li>модель автомобіля;</li>
+          <li>рік випуску автомобіля;</li>
+          <li>потужність двигуна;</li>
+          <li>
+            метод для виведення інформації про автомобіль в console.log().
+          </li>
+        </ul>
+        <p>
+          Реалізуйте класи-спадкоємці: легковий автомобіль, вантажний
+          автомобіль, автобус. Перевизначте методи виведення та обчислень у
+          класах-спадкоємцях. Створіть масив з різними автомобілями та виведіть
+          інформацію про кожен з них.
+        </p>
+        <p>
+          // Task 5 class Car { constructor(make, model, year, enginePower) {
+          this.make = make; this.model = model; this.year = year;
+          this.enginePower = enginePower; } printInfo() { console.log(`Car:
+          ${this.make} ${this.model}, Year: ${this.year}, Engine Power:
+          ${this.enginePower} HP`); } } class Sedan extends Car {
+          constructor(make, model, year, enginePower) { super(make, model, year,
+          enginePower); } printInfo() { console.log(`Sedan: ${this.make}
+          ${this.model}, Year: ${this.year}, Engine Power: ${this.enginePower}
+          HP`); } } class Truck extends Car { constructor(make, model, year,
+          enginePower) { super(make, model, year, enginePower); } printInfo() {
+          console.log(`Truck: ${this.make} ${this.model}, Year: ${this.year},
+          Engine Power: ${this.enginePower} HP`); } } class Bus extends Car {
+          constructor(make, model, year, enginePower) { super(make, model, year,
+          enginePower); } printInfo() { console.log(`Bus: ${this.make}
+          ${this.model}, Year: ${this.year}, Engine Power: ${this.enginePower}
+          HP`); } } // Example const cars = [ new Sedan('Toyota', 'Camry', 2022,
+          200), new Truck('Ford', 'F-150', 2021, 400), new Bus('Mercedes',
+          'Sprinter', 2020, 180) ]; cars.forEach(car => car.printInfo());
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
